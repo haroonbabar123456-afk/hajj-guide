@@ -109,8 +109,8 @@ function renderContent(day) {
         }[task.type];
 
         html += `
-            <div class="task-item ${completedClass}" onclick="toggleTask('${task.id}')">
-                <input type="checkbox" id="${task.id}" ${isChecked}>
+            <div id="item-${task.id}" class="task-item ${completedClass}" onclick="toggleTask('${task.id}')">
+                <input type="checkbox" id="${task.id}" ${isChecked} onchange="event.stopPropagation();">
                 <div class="ritual-icon-bubble">${task.icon}</div>
                 <div class="task-text-content">
                     <span class="badge badge-${task.type}">${typeLabel}</span>
@@ -154,12 +154,20 @@ window.toggleTask = function(taskId) {
         console.log('GA Logged:', taskText, isChecked);
     }
     
-    // Smooth update
+    // Update visual state directly (No full re-render)
+    const item = document.getElementById(`item-${taskId}`);
     const checkbox = document.getElementById(taskId);
-    if(checkbox) checkbox.checked = userProgress[taskId];
     
-    // Update visual state and progress bar
-    renderContent(currentDay);
+    if (item) {
+        if (userProgress[taskId]) {
+            item.classList.add('completed');
+        } else {
+            item.classList.remove('completed');
+        }
+    }
+    if (checkbox) checkbox.checked = userProgress[taskId];
+    
+    // Update progress bar footer
     updateProgressBar();
 };
 
