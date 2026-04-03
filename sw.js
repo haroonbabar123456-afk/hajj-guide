@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hajj-guide-v1';
+const CACHE_NAME = 'hajj-guide-v3';
 const ASSETS = [
     'index.html',
     'style.css',
