@@ -238,10 +238,29 @@ document.addEventListener('DOMContentLoaded', () => {
             navigator.serviceWorker.register('sw.js')
                 .then(registration => {
                     console.log('SW registered: ', registration);
+                    
+                    // Listen for updates
+                    registration.onupdatefound = () => {
+                        const newSW = registration.installing;
+                        newSW.onstatechange = () => {
+                            if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                                // New version is ready!
+                                const banner = document.getElementById('update-banner');
+                                if (banner) banner.style.display = 'flex';
+                            }
+                        };
+                    };
                 })
                 .catch(registrationError => {
                     console.log('SW registration failed: ', registrationError);
                 });
         });
+
+        // Check for updates every hour
+        setInterval(() => {
+            navigator.serviceWorker.getRegistration().then(reg => {
+                if (reg) reg.update();
+            });
+        }, 3600000); 
     }
 });

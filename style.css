@@ -431,7 +431,43 @@ footer {
     font-weight: bold;
 }
 
-hr {
-    margin: 20px 0;
-    opacity: 0.1;
+/* Auto-Update Banner */
+#update-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--white) 0%, #f0fdf4 100%);
+    color: var(--primary-color);
+    padding: 15px 20px;
+    border-radius: 20px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    z-index: 2000;
+    border: 2px solid var(--secondary-color);
+    animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.update-message {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.update-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.update-btn:hover {
+    background: var(--secondary-color);
+    color: var(--primary-color);
 }
