@@ -45,6 +45,7 @@
                 <div class="logo-area">
                     <span class="spiritual-icon">🕌</span>
                     <h1>حج و عمرہ</h1>
+                    <button class="install-guide-btn" onclick="toggleInstallModal()">📱 انسٹال کریں</button>
                 </div>
                 <div class="main-title">
                     <h2>حج کے 5 دن</h2>
@@ -83,9 +84,37 @@
                 </div>
             </div>
             <div class="app-version" style="text-align: center; margin-top: 15px; font-size: 0.7rem; opacity: 0.5;">
-                Version 6.0 | <a href="#" onclick="forceUpdate(); return false;" style="color: var(--primary-color); text-decoration: underline;">Refresh App</a>
+                Version 7.0 | <a href="#" onclick="forceUpdate(); return false;" style="color: var(--primary-color); text-decoration: underline;">Refresh App</a>
             </div>
         </footer>
+    </div>
+
+    <!-- Install Modal -->
+    <div id="install-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <button class="close-modal" onclick="toggleInstallModal()">&times;</button>
+            <h3>فون میں انسٹائل کرنے کا طریقہ</h3>
+            
+            <div class="tabs-guide">
+                <div class="guide-section">
+                    <h4>iPhone (iOS) </h4>
+                    <ul>
+                        <li>سفاری (Safari) براؤزر میں کھولیں۔</li>
+                        <li>نیچے **Share** (شیئر) بٹن پر ٹیپ کریں۔</li>
+                        <li>**Add to Home Screen** منتخب کریں۔</li>
+                    </ul>
+                </div>
+                <hr>
+                <div class="guide-section">
+                    <h4>Android (Chrome) 🤖</h4>
+                    <ul>
+                        <li>کروم (Chrome) براؤزر میں مینو (3 ڈاٹ) پر ٹیپ کریں۔</li>
+                        <li>**Install App** یا **Add to Home Screen** پر ٹیپ کریں۔</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="note" style="margin-top: 15px; text-align: center;">ایک بار انسٹال ہونے کے بعد، یہ ایپ انٹرنیٹ کے بغیر بھی چلے گی۔</div>
+        </div>
     </div>
 
     <script src="script_v3.js"></script>

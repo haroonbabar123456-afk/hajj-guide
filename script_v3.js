@@ -177,6 +177,15 @@ window.forceUpdate = function() {
     }
 };
 
+window.toggleInstallModal = function() {
+    const modal = document.getElementById('install-modal');
+    if (modal.style.display === 'none' || modal.style.display === '') {
+        modal.style.display = 'flex';
+    } else {
+        modal.style.display = 'none';
+    }
+};
+
 
 document.addEventListener('DOMContentLoaded', () => {
     init();

@@ -65,6 +65,25 @@ h1 {
 .subtitle {
     font-size: 0.9rem;
     opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.install-guide-btn {
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.install-guide-btn:hover {
+    transform: scale(1.05);
+    background: var(--white);
 }
 
 .main-title h2 {
@@ -306,4 +325,78 @@ footer {
     text-align: center;
     padding: 40px;
     font-size: 1.2rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-top: 5px solid var(--secondary-color);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.guide-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.guide-section ul {
+    list-style: none;
+}
+
+.guide-section ul li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    padding-right: 15px;
+    position: relative;
+}
+
+.guide-section ul li::before {
+    content: "•";
+    color: var(--secondary-color);
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+}
+
+hr {
+    margin: 20px 0;
+    opacity: 0.1;
 }
