@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حج گائیڈ - 5 دن</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b4d3c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="حج گائیڈ">
+    <link rel="apple-touch-icon" href="icon-192.png">
+
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="حج کے 5 دنوں کی مکمل رہنمائی - قدم بہ قدم رہنمائی برائے حجاج کرام">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="header-content">
+                <div class="logo-area">
+                    <span class="spiritual-icon">🕌</span>
+                    <h1>حج و عمرہ</h1>
+                    <p class="subtitle">محمد احتشام کی پیشکش</p>
+                </div>
+                <div class="main-title">
+                    <h2>حج کے 5 دن</h2>
+                    <p>قدم بہ قدم رہنمائی</p>
+                </div>
+                <div class="stats-bar">
+                    <span class="stat">فرائض: <strong id="stat-fard">3</strong></span>
+                    <span class="stat">واجبات: <strong id="stat-wajib">7</strong></span>
+                    <span class="stat">سنن: <strong id="stat-sunnah">17</strong></span>
+                </div>
+            </div>
+        </header>
+
+        <nav class="day-tabs">
+            <button class="tab-btn active" data-day="8">8 ذی الحجہ</button>
+            <button class="tab-btn" data-day="9">9 ذی الحجہ</button>
+            <button class="tab-btn" data-day="10">10 ذی الحجہ</button>
+            <button class="tab-btn" data-day="11">11 ذی الحجہ</button>
+            <button class="tab-btn" data-day="12">12 ذی الحجہ</button>
+            <button class="tab-btn" data-day="13">13 ذی الحجہ</button>
+        </nav>
+
+        <main id="content-area">
+            <!-- Content will be injected by JavaScript -->
+            <div class="loading">لوڈنگ جاری ہے...</div>
+        </main>
+
+        <footer>
+            <div class="footer-info">
+                <p>اللہ تعالیٰ آپ کا حج قبول فرمائے۔ آمین</p>
+            </div>
+            <div class="progress-footer">
+                <div class="progress-text">آپ کی پیشرفت: <span id="progress-percent">0%</span></div>
+                <div class="progress-bar-bg">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script_v3.js"></script>
+</body>
+</html>

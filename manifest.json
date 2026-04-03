@@ -1,0 +1,21 @@
+{
+  "name": "حج گائیڈ - 5 دن",
+  "short_name": "حج گائیڈ",
+  "description": "حج کے 5 دنوں کی مکمل رہنمائی - قدم بہ قدم رہنمائی برائے حجاج کرام",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0b4d3c",
+  "theme_color": "#0b4d3c",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
