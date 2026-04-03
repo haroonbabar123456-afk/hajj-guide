@@ -133,6 +133,27 @@ window.toggleTask = function(taskId) {
     userProgress[taskId] = !userProgress[taskId];
     localStorage.setItem('hajjProgress', JSON.stringify(userProgress));
     
+    // Google Analytics Event Tracking
+    if (typeof gtag === 'function') {
+        const isChecked = userProgress[taskId];
+        // Find task text for better labels
+        let taskText = taskId;
+        for (const day in hajjData) {
+            const task = hajjData[day].tasks.find(t => t.id === taskId);
+            if (task) {
+                taskText = task.text;
+                break;
+            }
+        }
+
+        gtag('event', 'ritual_toggle', {
+            'event_category': 'Engagement',
+            'event_label': taskText,
+            'value': isChecked ? 1 : 0
+        });
+        console.log('GA Logged:', taskText, isChecked);
+    }
+    
     // Smooth update
     const checkbox = document.getElementById(taskId);
     if(checkbox) checkbox.checked = userProgress[taskId];
