@@ -190,6 +190,13 @@ window.toggleInstallModal = function() {
 document.addEventListener('DOMContentLoaded', () => {
     init();
     
+    // Check if the app is already installed (standalone mode)
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    if (isStandalone) {
+        const installBtn = document.querySelector('.install-guide-btn');
+        if (installBtn) installBtn.style.display = 'none';
+    }
+    
     // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
