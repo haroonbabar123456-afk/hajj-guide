@@ -161,10 +161,21 @@ function updateProgressBar() {
         day.tasks.forEach(task => counts[task.type]++);
     });
 
-    document.getElementById('stat-fard').innerText = counts.fard;
-    document.getElementById('stat-wajib').innerText = counts.wajib;
     document.getElementById('stat-sunnah').innerText = counts.sunnah;
 }
+
+window.forceUpdate = function() {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+            for (let registration of registrations) {
+                registration.unregister();
+            }
+            window.location.reload(true);
+        });
+    } else {
+        window.location.reload(true);
+    }
+};
 
 
 document.addEventListener('DOMContentLoaded', () => {

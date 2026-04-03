@@ -1,4 +1,4 @@
-const CACHE_NAME = 'hajj-guide-v3';
+const CACHE_NAME = 'hajj-guide-v4';
 const ASSETS = [
     'index.html',
     'style.css',
@@ -10,6 +10,7 @@ const ASSETS = [
 
 // Install Service Worker
 self.addEventListener('install', (event) => {
+    self.skipWaiting(); // Force the waiting service worker to become the active one.
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
             console.log('Service Worker: Caching assets');
@@ -20,6 +21,9 @@ self.addEventListener('install', (event) => {
 
 // Activate Service Worker
 self.addEventListener('activate', (event) => {
+    // Claim any existing clients immediately
+    event.waitUntil(clients.claim());
+    
     event.waitUntil(
         caches.keys().then((keys) => {
             return Promise.all(
