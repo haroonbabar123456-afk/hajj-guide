@@ -191,10 +191,16 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     
     // Check if the app is already installed (standalone mode)
-    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                        ('standalone' in window.navigator && window.navigator.standalone) ||
+                        document.referrer.includes('android-app://');
+
     if (isStandalone) {
         const installBtn = document.querySelector('.install-guide-btn');
-        if (installBtn) installBtn.style.display = 'none';
+        if (installBtn) {
+            installBtn.style.display = 'none';
+            console.log('App is running in standalone mode. Hiding install button.');
+        }
     }
     
     // Register Service Worker for PWA
